@@ -14,7 +14,7 @@ namespace usersProjekt
         public Connection()
         {
             this.Host = "192.168.0.117";
-            this.Db = "db";
+            this.Db = "usersProjekt";
             this.User = "root";
             this.Password = "password";
 
