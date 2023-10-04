@@ -125,5 +125,32 @@ namespace usersProjekt.Controllers
             }
 
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult<object> Delete(Guid id)
+        {
+            try
+            {
+                conn.connection.Open();
+
+                string sql = $"DELETE FROM users WHERE Id='{id}'";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn.connection);
+
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    return StatusCode(404, "A felhasználó nem létezik.");
+                }
+                else
+                {
+                    return StatusCode(200, "A felhasználó törölve.");
+                }
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(400, e.Message);
+            }
+        }
     }
 }
