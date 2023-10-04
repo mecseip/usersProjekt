@@ -17,7 +17,7 @@ namespace usersProjekt.Controllers
             try
             {
                 conn.connection.Open();
-                string sql = "SELECT * FROM products";
+                string sql = "SELECT * FROM users";
                 MySqlCommand cmd = new MySqlCommand(sql, conn.connection);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
